@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innovators Club LSS - Futuristic Portal</title>
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --text: #ffffff;
+      --card: #111;
+      --primary: cyan;
+      --secondary: orange;
+    }
+
+    /* LIGHT MODE */
+    .light {
+      --bg: #f5f5f5;
+      --text: #111;
+      --card: #ffffff;
+      --primary: #00ffff;
+      --secondary: #ff6600;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      transition: 0.3s;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* BACKGROUND PARTICLES */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at 50% 50%, rgba(0,255,255,0.05), transparent 80%);
+      z-index: -1;
+      animation: bgMove 15s linear infinite;
+    }
+
+    @keyframes bgMove {
+      0% { transform: translate(0,0); }
+      50% { transform: translate(40px,30px); }
+      100% { transform: translate(0,0); }
+    }
+
+    /* TOGGLE BUTTON */
+    .toggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      background: var(--primary);
+      color: black;
+      font-weight: bold;
+      box-shadow: 0 0 15px var(--primary);
+      z-index: 10;
+      transition: 0.3s;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      transition: 0.3s;
+      border-radius: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      color: var(--primary);
+      animation: neonPulse 2s infinite alternate;
+      margin: 0;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: var(--text);
+      margin-top: 20px;
+      font-size: 1.3rem;
+    }
+
+.light .hero {
+  height: 50vh; 
+  background: linear-gradient(120deg, blue, purple);
+  padding: 40px;
+
+  /* Borders */
+  border-bottom: 10px solid #00ffff;
+
+  /* Curved corners */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+    @keyframes neonPulse {
+      0%, 100% { text-shadow: 0 0 5px var(--primary), 0 0 15px var(--primary); }
+      50% { text-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary); }
+    }
+
+    /* FACTS SECTION */
+    .facts {
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .facts h2 {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px var(--secondary);
+    }
+
+    .fact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .fact {
+      background: var(--card);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.15);
+      transition: 0.3s;
+      transform: translateY(0);
+    }
+
+    .fact:hover {
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: 0 0 25px var(--secondary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .image-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.card {
+  background: #111;
+  border-radius: 15px;
+  overflow: hidden; /* important for rounded corners on images */
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 25px cyan;
+}
+
+.card img {
+  width: 100%;
+  height: auto; /* let image control height */
+  display: block;
+  object-fit: cover; /* ensures the image covers the width nicely */
+}
+
+.card h3 {
+  margin: 15px;
+  color: #00ffff;
+}
+
+.card p {
+  margin: 0 15px 15px 15px;
+  color: #fff;
+}
+  </style>
+</head>
+<body>
+
+  <!-- TOGGLE -->
+  <button class="toggle" onclick="toggleTheme()">🌙 Dark/Light</button>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Innovators Club LSS</h1>
+    <p>Where creativity meets technology. Build, code, invent, lead.</p>
+  </section>
+
+  <!-- FACTS -->
+  <section class="facts">
+    <h2>About the Club</h2>
+    <div class="fact-container">
+      <div class="fact">
+        <h3>🚀 Mission</h3>
+        <p>Empower future innovators through coding, robotics, and design.</p>
+      </div>
+      <div class="fact">
+        <h3>💡 Activities</h3>
+        <p>Projects, competitions, workshops, and creative challenges.</p>
+      </div>
+      <div class="fact">
+        <h3>🧠 Skills</h3>
+        <p>Programming, design, critical thinking, leadership, and teamwork.</p>
+      </div>
+      <div class="fact">
+        <h3>🏆 Vision</h3>
+        <p>To shape a new generation of inventors and tech leaders.</p>
+      </div>
+    </div>
+  </section>
+<section class="image-cards">
+  <div class="card">
+    <img src="images/items.png" alt="Sample Image">
+    <h3>UNSO problems 2026</h3>
+    <p>Quick access to the UNSO questions quickly.</p>
+  </div>
+
+  <div class="card">
+    <img src="images/groups.png" alt="Sample Image">
+    <h3>Teams participating 2026</h3>
+    <p>Work, collaborate to perfection with your group members.</p>
+  </div>
+  <div class="card">
+    <img src="images/UNSO2.png" alt="Sample Image">
+    <h3>Uganda National Science Olymapiad 2026</h3>
+    <p>Genesis ∞ Edition, Hive of Possibility.</p>
+  </div>
+
+</section>
+  <footer>
+    Contact: innovatorslss@gmail.com<br>
+    <img src="images/s.jpg" alt="logo">
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle("light");
+      const btn = document.querySelector(".toggle");
+      btn.textContent = body.classList.contains("light") ? "🌙 Dark" : "☀️ Light";
+    }
+  </script>
+
+</body>
+</html>
